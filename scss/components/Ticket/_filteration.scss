@@ -1,0 +1,90 @@
+.table_topbar{
+    margin-bottom: 0.75rem;
+    @include breakpoint(mobile){
+        margin-bottom: 0;
+    }
+    @include breakpoint(miniTablet){
+        flex-direction: column;
+        .btn_group:first-child{
+            margin-bottom: toRem(10);
+        }
+    }
+    @include breakpoint(large-min){
+        margin-bottom: toRem(30);
+    }
+    .title_main{
+        min-width: max-content; 
+        font-size: toRem(14);
+        margin-#{$left}:toRem(10);
+        @include breakpoint(mobile){
+            max-width: calc(100% - (toRem(36) + toRem(36) + toRem(21)));
+        }
+        @include breakpoint(tablet-min){
+            font-size: toRem(15);
+        }
+        @include breakpoint(xlarge-min){
+            font-size: toRem(16);
+        }
+    }
+    .input-group{
+        position: relative;
+        height: toRem(36);
+        background-color: $white;
+        @include breakpoint(mobile){
+            max-width: calc(100% - (toRem(36) + toRem(36) + toRem(21) + toRem(90)));
+        }
+
+        &::before{
+            content: "";
+            width: toRem(16);
+            height: toRem(16);
+            position: absolute;
+            top: calc(50% - toRem(8));
+            #{$right}:toRem(8);
+            content: "";
+            background: url('../assets/images/svg/search-normal.svg') no-repeat center;
+            background-size: contain;
+            z-index: 2; 
+        }
+        .input-main{
+            margin: 0; 
+            height: 100%;
+            background-color: transparent;
+            box-shadow: none !important;
+            padding-#{$right}:toRem(28);
+            line-height: 1; 
+            font-size: toRem(16);
+        }
+    } 
+    .btn_main{
+        min-width: 116px;
+    }
+    @include breakpoint(miniTablet){
+        .btn_group{
+            width: 100%;
+            &:last-child{
+                justify-content: end; 
+            }
+        }
+    }
+    @include breakpoint(mobile){
+        position: relative;
+        .btn_group{
+            &:first-child .title_main{
+                margin-bottom: toRem(20);
+                width: 100%;
+                padding-top:toRem(5);
+            }
+        }
+        .btn_main{
+            position: absolute;
+            top: 0; 
+            min-height: toRem(30);
+            z-index: 2; 
+        }
+        .switch_box{
+            position: absolute;
+            bottom: toRem(16); 
+        }
+    }
+}

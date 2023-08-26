@@ -1,0 +1,194 @@
+// * This is some of normalize.css file + custom styles.
+
+@import "../abstract/variables";
+@import "../abstract/colors";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: $main-fz;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent !important;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-size:toRem(16);
+}
+
+body {
+    direction: #{$dir};
+    text-align: #{$right};
+    margin: 0;
+    font-family: $defaultFont;
+    color: $dark;
+    background-color: $bg-body;
+    overflow-x: hidden !important;
+    font-size:toRem(16);
+    padding-block: 0.75rem; 
+    @include breakpoint(mobile){
+        font-size:toRem(14);
+    }
+    @include breakpoint(large-min){
+        padding-top: toRem(30);
+        padding-#{$right}: toRem(70); 
+    }
+    @include breakpoint(xlarge-min){
+        padding-top: toRem(85);
+        padding-#{$right}: toRem(137); 
+    }
+    &::-webkit-scrollbar {
+        width: toRem(8);
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-light;
+        border-radius: 10px;
+    } 
+    &.body-noScroll{
+        overflow: hidden !important;
+    }
+} 
+::-moz-selection {
+    color: #fff;
+    background: $primary;
+}
+
+::selection {
+    color: #fff;
+    background: $primary;
+}
+
+main {
+    display: block;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+a {
+    background-color: transparent;
+    color: $dark;
+}
+
+img {
+    border-style: none;
+}
+
+button,
+input {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+p{
+    margin-bottom: 0;
+}
+button,
+input {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+} 
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 0;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit;
+}
+
+[hidden] , .hidden{
+    display: none;
+}
+
+@-webkit-keyframes top-bottom {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-1.3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes top-bottom {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-1.3rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes scale-rotate-1-2 {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-6deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes scale-rotate-1-2 {
+    0% {
+        transform: scale(1) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-6deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+// * Generate font sizes from 1 to 6
+@for $i from 1 through 6 {
+    .fz-#{$i} {
+        font-size: #{$i * 1.22}rem;
+    }
+}
+.scale-rotate-1-2{
+    @include prefixing(animation, scale-rotate-1-2 3s ease-in-out 0s infinite normal both);
+}

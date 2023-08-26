@@ -1,0 +1,163 @@
+@mixin prefixing($prop, $value) {
+    -webkit-#{$prop}: #{$value};
+    -moz-#{$prop}: #{$value};
+    -ms-#{$prop}: #{$value};
+    -o-#{$prop}: #{$value};
+    #{$prop}: #{$value};
+}
+
+/********** Start Break points - Responsive - ****************/
+@mixin breakpoint($point) {
+    @if $point == xlarge {
+        @media only screen and (max-width: 1439px) {
+            @content;
+        }
+    }
+    @if $point == xlarge-min {
+        @media only screen and (min-width: 1440px) {
+            @content;
+        }
+    }
+    @if $point == large {
+        @media only screen and (max-width: 1199px) {
+            @content;
+        }
+    }
+    @if $point == large-min {
+        @media only screen and (min-width: 1200px) {
+            @content;
+        }
+    }
+    @if $point == tablet {
+        @media only screen and (max-width: 991px) {
+            @content;
+        }
+    }
+    @if $point == tablet-min {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+    @if $point == miniTablet {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+    @if $point == miniTablet-min {
+        @media only screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @if $point == mobile {
+        @media only screen and (max-width: 575px) {
+            @content;
+        }
+    }
+    @if $point == mobile-min {
+        @media only screen and (min-width: 576px) {
+            @content;
+        }
+    }
+    @if $point == minMobile {
+        @media only screen and (max-width: 375px) {
+            @content;
+        }
+    }
+    @if $point == minMobile-min {
+        @media only screen and (min-width: 376px) {
+            @content;
+        }
+    }
+
+}
+/********** !!End Break points - Responsive - ****************/
+
+@mixin grid-columns($columns-number) {
+    display: grid;
+    grid-template-columns: repeat($columns-number, 1fr);
+}
+
+@mixin flex-end-row {
+    @include prefixing(display, flex);
+    @include prefixing(justify-content, flex-end);
+    @include prefixing(align-items, center);
+}
+
+@mixin flex-start-row {
+    @include prefixing(display, flex);
+    @include prefixing(justify-content, flex-start);
+    @include prefixing(align-items, center);
+}
+
+@mixin flex-center-row {
+    @include prefixing(display, flex);
+    @include prefixing(justify-content, center);
+    @include prefixing(align-items, center);
+}
+
+@mixin flex-start-column {
+    @include prefixing(display, flex);
+    @include prefixing(align-items, start);
+    @include prefixing(flex-direction, column);
+}
+
+@mixin flex-center-column {
+    @include flex-center-row;
+    @include prefixing(flex-direction, column);
+}
+
+@mixin flex-between-row {
+    @include prefixing(display, flex);
+    @include prefixing(justify-content, space-between);
+    @include prefixing(align-items, center);
+}
+
+@mixin flex-between-column {
+    @include flex-between-row;
+    @include prefixing(flex-direction, column);
+}
+
+@mixin fade($type) {
+    @if $type == "hide" {
+        visibility: hidden;
+        opacity: 0;
+    } @else if $type == "show" {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@mixin reset-bg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin transition($prop: all, $time: 0.3, $func: ease-in-out, $delaying: 0) {
+    @if $func == ease {
+        @include prefixing(transition, $prop #{$time}s ease #{$delaying}s);
+    } @else if $func == ease-in {
+        @include prefixing(transition, $prop #{$time}s ease-in #{$delaying}s);
+    } @else if $func == ease-in-out {
+        @include prefixing(transition, $prop #{$time}s ease-in-out #{$delaying}s);
+    } @else if $func == ease-out {
+        @include prefixing(transition, $prop #{$time}s ease-out #{$delaying}s);
+    } @else if $func == linear {
+        @include prefixing(transition, $prop #{$time}s linear #{$delaying}s);
+    }
+}
+
+@mixin fading-transition($time, $func) {
+    @include prefixing(transition, visibility);
+    @include prefixing(transition, opacity);
+    transition: visibility #{$time}s #{$func}, opacity #{$time}s #{$func};
+}
+
+@mixin ellipsis($l){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $l;
+    -webkit-box-orient: vertical;
+}

@@ -1,0 +1,44 @@
+.breadcrumbs{
+    text-align: center;
+    padding-block: calc(0.75rem / 2); 
+    @include breakpoint(mobile-min){
+        padding-block: toRem(8); 
+    }
+    &_heading{
+        max-width: calc(100% - toRem(90));
+        @include flex-start-row;
+
+        &-title{
+            text-transform: capitalize;
+            margin: 0;
+            font-weight: bold; 
+            color: $dark;
+            @include ellipsis(1);
+            max-width: 100%; 
+            text-align: right;
+            @include breakpoint(miniTablet) {
+                font-size: toRem(14); 
+            } 
+            @include breakpoint(tablet-min) {
+                font-size: toRem(15); 
+            } 
+            @include breakpoint(large-min) {
+                font-size: toRem(16); 
+            } 
+            
+        } 
+        &-btn{
+            border-radius: 8px;
+            width: toRem(32);
+            height: toRem(32);
+            background-color: $bg-icon;
+            margin-#{$left}: toRem(7);
+            @include flex-center-row;
+            display: inline-flex; 
+            @include transition(background-color, 0.35, ease-in, 0);
+            &:hover , &:focus{
+                background-color: $white;
+            }
+        }
+    }
+}

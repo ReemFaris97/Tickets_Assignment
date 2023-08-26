@@ -1,0 +1,107 @@
+.input-main {
+    outline: 0;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: toRem(36);
+    padding: 0 0.75rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    -webkit-transition:
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        border-color 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    transition:
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    transition:
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
+        -webkit-box-shadow 0.15s ease-in-out;
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($primary-light, 0.25);
+    }
+    /* WebKit, Edge */
+&::-webkit-input-placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+  }
+  /* Firefox 4-18 */
+  &:-moz-placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+    opacity: 1;
+  }
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+    opacity: 1;
+  }
+  /* IE 10-11 */
+  &:-ms-input-placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+  }
+  /* Edge */
+  &::-ms-input-placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+  }
+  /* MODERN BROWSER */
+  &::placeholder {
+    color: rgba(146, 161, 173, 0.40);
+    font-size: toRem(10);
+  }
+}
+
+/*** Start Select ***/
+.select-main {
+    color: $dark;
+    background-color: $main-input;
+    border-color: $border-grey2;
+    min-width: toRem(67);
+    min-height: toRem(30);
+    font-size: toRem(12);
+    box-shadow: none !important;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #898989 50%),
+        linear-gradient(135deg, #898989 50%, transparent 50%);
+    background-position:
+        calc(40% - 20px) calc(1em + 2px),
+        calc(40% - 15px) calc(1em + 2px);
+    background-size:
+        5px 5px,
+        5px 5px;
+    background-repeat: no-repeat;
+    &:focus {
+        background-image: linear-gradient(45deg, $primary-light 50%, transparent 50%),
+            linear-gradient(135deg, transparent 50%, $primary-light 50%);
+        background-position:
+            calc(40% - 15px) 1em,
+            calc(40% - 20px) 1em;
+        background-size:5px 5px,5px 5px;
+        background-repeat: no-repeat;
+        border-color: $primary-light;
+        outline: 0;
+        option:checked {
+            background: $primary-light;
+            color: $white;
+          }
+    }
+    &:-moz-focusring {
+        color: transparent;
+        text-shadow: 0 0 0 #000;
+      }
+}
+/*** !!End Select ***/

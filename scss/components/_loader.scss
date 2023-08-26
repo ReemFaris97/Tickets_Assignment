@@ -1,0 +1,11 @@
+#load {
+    width: 115%;
+    height: 115%;
+    position: fixed;
+    top: 50%;
+    #{$left}: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999999999999999999999;
+    background: url("../assets/images/svg/loader.svg") center center no-repeat #1C1C28;
+    background-size: 128px 128px;
+}

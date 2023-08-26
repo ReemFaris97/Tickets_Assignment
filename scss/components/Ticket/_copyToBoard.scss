@@ -1,0 +1,67 @@
+.copy_text {
+    border-radius: toRem(8.316);
+    border: 0.832px dashed #DDD;
+    background: $white;
+    max-width: 90%;
+    height: toRem(42);
+    @include flex-center-row;
+    padding: toRem(8);
+    width: 100%; 
+    &-input {
+        padding: 10px;
+        color: $dark;
+        border: none;
+        outline: none;
+        font-size: toRem(13);
+        background-color: transparent;
+        height: toRem(42);
+        font-weight: bold;
+        @include breakpoint(miniTablet){
+            font-size: toRem(12);
+            width: 100%; 
+            text-align: center; 
+        }
+    }
+    &-btn {
+        color: $primary-light;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        position: relative;
+        cursor: pointer;
+        background-color: transparent; 
+        &::before {
+            content: "تم النسخ";
+            position: absolute;
+            top: -45px;
+            #{$left}: 0;
+            color: $white;
+            background: $bg-tooltip;
+            padding: 8px 10px;
+            min-width: max-content;
+            border-radius: 6px;
+            font-size: toRem(13);
+            display: none;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            top: -20px;
+            #{$left}: toRem(10);
+            width: 10px;
+            height: 10px;
+            background: $bg-tooltip;
+            transform: rotate(45deg);
+            display: none;
+        }
+    }
+    &.active {
+        .copy_text-btn::before,
+        .copy_text-btn::after {
+            display: block;
+        }
+    }
+    @include breakpoint(mobile-min){
+        max-width: toRem(226);
+    }
+}

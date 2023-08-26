@@ -1,0 +1,64 @@
+.btn_main {
+    outline: 0;
+    min-width: toRem(78);
+    min-height: toRem(36);
+    padding: toRem(3) toRem(6);
+    line-height: 1; 
+    border-radius: 6px;
+    background-color: $primary-light;
+    color: $white;
+    font-size: toRem(14);
+    font-weight: 500;
+    @include transition(background-color, 0.35, ease-in, 0);
+    margin: 0;
+    border-color: transparent;
+    cursor: pointer;
+    @include flex-center-row;
+    @include breakpoint(tablet) {
+    } 
+    .btn_icon{
+        width: toRem(18);
+        height: toRem(18);
+        margin-#{$left}:toRem(7);
+        &-svg , path{
+            fill:$primary-light;
+        }
+    }
+    &.btn_light{
+        color: $dark;
+        border: 1px solid $border-grey;
+        background-color: $white;
+        // .btn_icon-svg , path{
+        //     fill:$icon-dark;
+        // }
+    }
+    &:hover , &:focus , &:active {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white !important;
+        .btn_icon-svg , path{
+            fill:$white;
+        }
+    } 
+}
+.btn_group{
+    .item {
+        &:last-child , &:not(:only-child) {
+            margin-#{$left}: toRem(7);
+            @include breakpoint(mobile){
+                margin-#{$left}: toRem(3.5);
+            }
+        }
+    }
+} 
+.btn-sm{
+    width: toRem(36);
+    height: toRem(36);
+    border-radius: 6px;
+    background-color: $white;
+    border: 1px solid #92A1AD66;
+    &:hover , &:focus , &:active {
+        background-color: $border-grey;
+        border-color: $border-grey;
+    }
+}

@@ -1,0 +1,12 @@
+.tooltip{
+    &-inner{
+        background-color:$bg-tooltip;
+        font-size: toRem(12);
+        @include breakpoint(mobile-min){
+            min-width: toRem(70);
+        }
+    }
+    &-arrow::before {
+        border-bottom-color:$bg-tooltip !important;
+    }
+}

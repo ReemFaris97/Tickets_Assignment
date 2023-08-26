@@ -1,0 +1,12 @@
+.statistics{
+    @include breakpoint(miniTablet-min) {
+        height: 100%;
+    }
+}
+.statistics_inner{
+    width: 100%;
+    height: toRem(170);
+    @include breakpoint(miniTablet-min) {
+        height: toRem(260);
+    }
+}

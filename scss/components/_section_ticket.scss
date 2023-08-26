@@ -1,0 +1,14 @@
+.box{
+    background-color: $white;
+    border-radius: 8px;
+    border: 0.807px solid $border-grey2; 
+    padding: toRem(20) toRem(9);
+    &.statistics{
+        @include breakpoint(miniTablet){
+            margin-bottom: toRem(10);
+        }
+    }
+    @include breakpoint(miniTablet-min){
+        padding: toRem(19) toRem(20);
+    }
+}

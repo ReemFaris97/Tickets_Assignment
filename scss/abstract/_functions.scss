@@ -1,0 +1,10 @@
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+
+/////// Using :
+// div {
+//     width: toRem(400);
+//     height: toRem(400);
+// }

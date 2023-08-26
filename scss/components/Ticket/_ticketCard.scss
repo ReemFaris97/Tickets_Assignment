@@ -1,0 +1,150 @@
+.ticket{
+    background: $primary-light url('../assets/images/svg/wave.svg') repeat top center;
+    background-size: contain;
+    position: relative;
+    padding: toRem(26) toRem(18);
+    border-radius: toRem(12.474); 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @include breakpoint(mobile){
+        padding: toRem(20) toRem(9);
+    }
+    &_delete{
+        position: absolute;
+        top: 0;
+        #{$left}: 0;
+        width: toRem(22);
+        height: toRem(22);
+        &-btn{
+            outline: none;
+            border:none;
+            color: $white;
+            background-color: transparent;
+        }
+    } 
+    &_outer{
+    position: relative;
+    padding-inline: toRem(14);
+    &::before , &::after{
+        content: "";
+        background-color: $bg-body;
+        border-radius: 50%;
+        width: toRem(30);
+        height: toRem(30);
+        position: absolute;
+        bottom: toRem(-15);
+    }
+    &::before{
+        #{$left}: calc(toRem(-15) - toRem(18));
+        @include breakpoint(mobile){
+            #{$left}: calc(toRem(-15) - toRem(9));
+        } 
+    }
+    &::after{
+        #{$right}: calc(toRem(-15) - toRem(18));
+        @include breakpoint(mobile){
+            #{$right}: calc(toRem(-15) - toRem(9));
+        } 
+    }
+    }
+    &_view{
+        display: block;
+        color: $white !important;
+        margin-bottom: toRem(20);
+        width: max-content;
+        margin-inline: auto;
+        @include transition(all .5s ease-in);
+        &:hover , &:focus{
+            opacity: .7;
+        }
+    }
+    &_top{
+        @include flex-center-column;
+        position: relative;
+        width: 100%;
+        &::before{
+            content: "";
+            width: calc(100% + toRem(14) + toRem(18));
+            height: toRem(2);
+            position: absolute;
+            bottom: 0;
+            border-bottom: toRem(2) dashed rgba($white, 0.40);
+            @include breakpoint(mobile){
+                width: calc(100% + toRem(14) + toRem(9));
+            }
+        }
+        &-info{
+            font-size: toRem(12);
+            color: $white;
+            margin: toRem(11) auto toRem(17) auto;
+        }
+    }
+
+    /* !!End Ticket Top */
+    &_phase{
+        padding-inline: toRem(14);
+        margin-top: toRem(15);
+    }
+    &_discount{
+        color: $white;
+        .discount{
+            font-size: toRem(13);
+            margin: 0 0 toRem(10) 0;
+            @include breakpoint(mobile-min){
+                font-size: toRem(14);
+            }
+        }
+    }
+    
+    .discount_ratio{
+        font-size: toRem(14);
+        font-family: $englishFont;
+        font-weight: bold;
+        @include breakpoint(mobile){
+            margin-#{$right}: toRem(6);
+        }
+        @include breakpoint(mobile-min){
+            margin-bottom: 0;
+        }
+        @include breakpoint(tablet-min){
+            font-size: toRem(16);
+        }
+        @include breakpoint(large-min){
+            font-size: toRem(18);
+        }
+
+    } 
+    &_btm{
+        .btn_main{
+            color: $white;
+            font-size: toRem(12);
+            min-height: toRem(24);
+            @include breakpoint(mobile-min){
+                margin-#{$right}: toRem(20);
+            }
+            @include breakpoint(miniTablet-min){
+                margin-#{$right}: toRem(14);
+            }
+            .btn_icon{
+                path{
+                    fill: $white;
+                }
+            }
+            &:not(:hover , :focus){
+                background-color: transparent;
+
+            }
+        }
+    }
+    &_qr{
+        .image{
+            object-fit: contain;
+            max-width: toRem(82);
+            max-height: toRem(82);
+        }
+    }
+    
+    /* !!End Ticket Bottom */
+}

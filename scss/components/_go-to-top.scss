@@ -1,0 +1,29 @@
+.go-to-top {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%;
+    @include flex-center-row;
+    position: fixed;
+    bottom: 4rem;
+    #{$right}: 2rem;
+    font-size: 1.5rem;
+    background-color: lighten($primary, 10%);
+    color: white;
+    cursor: pointer;
+    z-index: 999999;
+    @include fade(hide);
+    @include transition();
+
+    &.shown {
+        @include fade(show);
+        #{$right}: 4rem;
+    }
+    @include breakpoint(mobile){
+        bottom: 2rem;
+        #{$right}: 0;
+        &.shown {
+            @include fade(show);
+            #{$right}: 2rem;
+        }
+    }
+}
